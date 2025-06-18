@@ -1,4 +1,4 @@
-import Database from 'better-sqlite3'
+import BetterSqlite3 = require('better-sqlite3')
 import { app } from 'electron'
 import { join } from 'path'
 import { v4 as uuidv4 } from 'uuid'
@@ -6,7 +6,7 @@ import { ClipboardItem, AppSettings, Template, SearchFilters } from '@shared/typ
 import { DEFAULT_SETTINGS, DATABASE_VERSION } from '@shared/constants'
 
 export class Database {
-  private db: Database.Database | null = null
+  private db: BetterSqlite3.Database | null = null
   private dbPath: string
 
   constructor() {
@@ -16,9 +16,9 @@ export class Database {
 
   async initialize(): Promise<void> {
     try {
-      this.db = new (Database as any)(this.dbPath)
-      this.db!.pragma('journal_mode = WAL')
-      this.db!.pragma('foreign_keys = ON')
+      this.db = new BetterSqlite3(this.dbPath)
+      this.db.pragma('journal_mode = WAL')
+      this.db.pragma('foreign_keys = ON')
       
       await this.createTables()
       await this.runMigrations()
