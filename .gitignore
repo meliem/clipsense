@@ -16,6 +16,20 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# macOS
+.DS_Store
+.DS_Store?
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
 # Logs
 logs
 *.log

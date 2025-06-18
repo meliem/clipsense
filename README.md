@@ -61,11 +61,11 @@
 ## 📥 Installation
 
 ### Download Pre-built Binaries
-1. Go to the [Releases](https://github.com/clipsense/clipsense/releases) page
+1. Go to the [Releases](https://github.com/meliem/clipsense/releases) page
 2. Download the appropriate version for your platform:
-   - **Windows**: `ClipSense-1.0.0-win.exe`
-   - **macOS**: `ClipSense-1.0.0-mac.dmg`
-   - **Linux**: `ClipSense-1.0.0-linux.AppImage`
+   - **Windows**: `ClipSense-1.0.0-win-x64.exe`
+   - **macOS**: `ClipSense-1.0.0-mac-universal.dmg`
+   - **Linux**: `ClipSense-1.0.0-linux-x64.AppImage`
 
 ### Build from Source
 
@@ -76,7 +76,7 @@
 #### Steps
 ```bash
 # Clone the repository
-git clone https://github.com/clipsense/clipsense.git
+git clone https://github.com/meliem/clipsense.git
 cd clipsense
 
 # Install dependencies
@@ -245,21 +245,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🐛 Bug Reports & Feature Requests
 
-Please use the [GitHub Issues](https://github.com/clipsense/clipsense/issues) page to report bugs or request features.
-
-## 📞 Support
-
-- **Documentation**: [docs.clipsense.dev](https://docs.clipsense.dev)
-- **Community**: [Discord Server](https://discord.gg/clipsense)
-- **Email**: support@clipsense.dev
+Please use the [GitHub Issues](https://github.com/meliem/clipsense/issues) page to report bugs or request features.
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the ClipSense Team</p>
+  <p>Made with ❤️ by meliem</p>
   <p>
-    <a href="https://github.com/clipsense/clipsense">⭐ Star us on GitHub</a> |
-    <a href="https://twitter.com/clipsense">🐦 Follow on Twitter</a> |
-    <a href="https://clipsense.dev">🌐 Visit our website</a>
+    <a href="https://github.com/meliem/clipsense">⭐ Star us on GitHub</a>
   </p>
 </div>
