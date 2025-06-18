@@ -23,9 +23,13 @@
     "build": "electron-vite build",
     "preview": "electron-vite preview",
     "start": "electron-vite preview",
-    "build:win": "npm run build && electron-builder --win",
-    "build:mac": "npm run build && electron-builder --mac",
-    "build:linux": "npm run build && electron-builder --linux",
+    "app:dev": "npm run build && electron .",
+    "app:dir": "npm run build && electron-builder --dir",
+    "app:dist": "npm run build && electron-builder",
+    "release:win": "npm run build && electron-builder --win --publish=never",
+    "release:mac": "npm run build && electron-builder --mac --publish=never", 
+    "release:linux": "npm run build && electron-builder --linux --publish=never",
+    "release:all": "npm run build && electron-builder --win --mac --linux --publish=never",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "typecheck": "tsc --noEmit",
     "test": "jest",
@@ -37,7 +41,6 @@
     "clsx": "^2.0.0",
     "crypto-js": "^4.2.0",
     "date-fns": "^2.30.0",
-    "electron": "^27.0.0",
     "electron-store": "^8.1.0",
     "electron-updater": "^6.1.0",
     "framer-motion": "^10.16.0",
@@ -69,8 +72,9 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.0",
+    "electron": "^27.0.0",
     "electron-builder": "^24.6.0",
-    "electron-vite": "^2.0.0",
+    "electron-vite": "^3.1.0",
     "eslint": "^8.50.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -79,7 +83,7 @@
     "tailwindcss": "^3.3.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.0",
-    "vite": "^5.0.0"
+    "vite": "^6.3.5"
   },
   "build": {
     "appId": "com.clipsense.app",
@@ -88,41 +92,71 @@
       "output": "release"
     },
     "files": [
-      "dist/**/*",
-      "node_modules/**/*"
+      "out/**/*",
+      "node_modules/**/*",
+      "package.json"
     ],
+    "extraMetadata": {
+      "main": "out/main/main.js"
+    },
     "mac": {
       "category": "public.app-category.productivity",
+      "icon": "resources/icon.icns",
       "target": [
         {
           "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
+          "arch": ["universal"]
+        },
+        {
+          "target": "zip",
+          "arch": ["universal"]
         }
-      ]
+      ],
+      "artifactName": "ClipSense-${version}-mac-${arch}.${ext}"
     },
     "win": {
+      "icon": "resources/icon.ico",
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
         }
-      ]
+      ],
+      "artifactName": "ClipSense-${version}-win-${arch}.${ext}"
     },
     "linux": {
+      "icon": "resources/icon.png",
       "target": [
         {
-          "target": "AppImage",
-          "arch": [
-            "x64"
-          ]
+          "target": "AppImage", 
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64"]
         }
-      ]
+      ],
+      "artifactName": "ClipSense-${version}-linux-${arch}.${ext}",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "meliem",
+      "repo": "clipsense"
     }
   }
 }
