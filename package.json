@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Intelligent clipboard manager with AI-powered content analysis",
   "main": "out/main/main.js",
-  "author": "meliem",
+  "author": {
+    "name": "meliem",
+    "url": "https://github.com/meliem"
+  },
   "license": "MIT",
   "homepage": "https://github.com/meliem/clipsense",
   "repository": {

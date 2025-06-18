@@ -250,8 +250,8 @@ Please use the [GitHub Issues](https://github.com/meliem/clipsense/issues) page 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by meliem</p>
+  <p>Made with ❤️ by <a href="https://github.com/meliem">meliem</a></p>
   <p>
-    <a href="https://github.com/meliem/clipsense">⭐ Star us on GitHub</a>
+    <a href="https://github.com/meliem/clipsense">⭐ Star on GitHub</a>
   </p>
 </div>
