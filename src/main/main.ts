@@ -1,7 +1,7 @@
 import { app, BrowserWindow, Menu, shell, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
+// import icon from '../../resources/icon.png?asset'
 import { ClipboardMonitor } from './clipboard-monitor'
 import { Database } from './database'
 import { TrayManager } from './tray-manager'
@@ -92,7 +92,7 @@ class ClipSenseApp {
       minHeight: 600,
       show: false,
       autoHideMenuBar: true,
-      icon: icon,
+      // icon: icon,
       webPreferences: {
         preload: join(__dirname, '../preload/preload.js'),
         sandbox: false,

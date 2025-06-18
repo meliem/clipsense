@@ -5,6 +5,12 @@ import { resolve } from 'path'
 export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()],
+    resolve: {
+      alias: {
+        '@shared': resolve('src/shared'),
+        '@main': resolve('src/main')
+      }
+    },
     build: {
       rollupOptions: {
         external: ['better-sqlite3']
@@ -12,7 +18,13 @@ export default defineConfig({
     }
   },
   preload: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+    resolve: {
+      alias: {
+        '@shared': resolve('src/shared'),
+        '@preload': resolve('src/preload')
+      }
+    }
   },
   renderer: {
     resolve: {
